@@ -69,5 +69,22 @@
             }
         }
     }
+
+    function unique(){
+        let stackItems = document.getElementByClassName("stack");
+        let items = {}
+        let rlist = [];
+        for(let el of stackItems){
+            if(items[e1.innerHTML]){
+                rlist.push(e1)
+            } else {
+                items[e1.innerHTML]=1
+            }
+
+        }
+        rlist.forEach(e1 => {
+            e1.remove()
+        })
+    }
 </script>
 </html>	

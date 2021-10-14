@@ -27,6 +27,10 @@
   <p id="tries" style="text-align: center;">Number of tries zero</p>
   <p id="distance" style="text-align: center;">Distance is unknown</p>
  
+  <div class="text-center mb-2">
+    <button class="btn btn-primary" onclick="newGame()">New Game</button>  
+  </div>
+ 
   <div class="image-grid d-flex flex-column justify-content-center align-items-center">
     <div class="image-row d-flex">
       <div class="image-col"><img src="plant.jpg"  onclick="check(0)" id="0" alt="starting image" class="mw-100 grid-image"></div>
@@ -81,7 +85,6 @@
       let maxDistance = distance(elementId, animalLocation);
       updateDistance(maxDistance);
   }
-
   function updateTries() {
     triesCount++;
     triesEl.innerText = `Number of tries is ${triesCount}`;
@@ -90,8 +93,6 @@
   function updateDistance(distance) {
     distanceEl.innerText = `Distance is ${distance}`;
   }
-
-
   function distance(pos1, pos2) {
     
     pos1 = parseInt(pos1);
@@ -103,7 +104,16 @@
     let horizontalDistance = Math.abs(pos1Row - pos2Row);
     let verticalDistance = Math.abs(pos1Col - pos2Col);
     return horizontalDistance > verticalDistance ? horizontalDistance : verticalDistance;
+     }
 
+     function newGame() {
+    let random = Math.floor(Math.random() * (23 - 0 + 1) + 0);
+    console.log("animal position is ", random);
+    animalLocation = random;
+    triesEl.innerText = 0;
+    ids.forEach( i => {
+      document.getElementById(i).src="plant.jpg"
+    })
   }
 </script>
   
