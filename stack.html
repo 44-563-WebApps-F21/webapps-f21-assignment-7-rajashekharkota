@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style>
+<title>push and pop operation</title>
+</head>
+
+
+
+<body>
+    <h1>Rajashekhar Kota builds a stack</h1>
+    <input id="inputElement" type="text"><br><br>
+    <div class="flex-container" id="target">
+        <div class="stack">row item 1</div>   
+        <div class="stack">row item 2</div>  
+        <div class="stack">row item 3</div>  
+    </div><br>	
+	<p> Press the button to create an new element of type div and then add it to the container.</p>
+	<button onclick="makeNewDiv()">Push value</button>
+
+</body>
+<script>
+    function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("div")
+        let input = document.getElementById("inputElement")
+		element.innerHTML = input.value
+		element.className = "stack"
+
+		/* add it to the container */
+		document.getElementById('target').appendChild(element)
+	}
+
+</script>
+</html>	
